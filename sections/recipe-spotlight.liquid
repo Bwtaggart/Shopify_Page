@@ -1,0 +1,56 @@
+<section class="recipe-spotlight">
+  <div class="recipe-spotlight__content">
+    <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+    {% if section.settings.button_label != blank %}
+      <a class="button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+  <div class="recipe-spotlight__cards">
+    {% for block in section.blocks %}
+      <article>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.copy }}</p>
+        {% if block.settings.link_label != blank %}
+          <a href="{{ block.settings.link }}" class="text-link">{{ block.settings.link_label }}</a>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recipe spotlight",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Serve with"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Farm kitchen favorites"},
+    {"type": "textarea", "id": "text", "label": "Description", "default": "Layer the spread onto biscuits, whisk into vinaigrettes, or mix with mayo for a fiery aioli."},
+    {"type": "text", "id": "button_label", "label": "Button label", "default": "View all recipes"},
+    {"type": "text", "id": "button_link", "label": "Button link", "default": "/blogs/recipes"}
+  ],
+  "blocks": [
+    {
+      "type": "recipe",
+      "name": "Recipe",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Title", "default": "Spicy charcuterie"},
+        {"type": "textarea", "id": "copy", "label": "Description", "default": "Add depth to cheese boards by drizzling on brie or goat cheese."},
+        {"type": "text", "id": "link_label", "label": "Link label", "default": "Get recipe"},
+        {"type": "text", "id": "link", "label": "Link", "default": "/blogs/recipes/spicy-charcuterie"}
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Recipe spotlight",
+      "blocks": [
+        {"type": "recipe"},
+        {"type": "recipe"}
+      ]
+    }
+  ]
+}
+{% endschema %}

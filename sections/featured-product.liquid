@@ -1,0 +1,93 @@
+{% if section.settings.product != blank %}
+  {% assign featured_product = all_products[section.settings.product] %}
+{% else %}
+  {% assign featured_product = nil %}
+{% endif %}
+{% assign fallback_link_candidate = section.settings.fallback_link | strip | append: '' %}
+{% assign fallback_link = fallback_link_candidate | default: routes.all_products_collection_url | append: '' %}
+<section class="featured-product">
+  <div class="featured-product__inner">
+    <div>
+      <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="rte">{{ section.settings.text }}</div>
+      {% if featured_product %}
+        <p class="featured-product__price">{{ featured_product.price | money }}</p>
+        {% form 'product', featured_product, class: 'featured-product__form' %}
+          {% unless featured_product.has_only_default_variant %}
+            <div class="featured-product__variants">
+              {% for option in featured_product.options_with_values %}
+                <label for="FeaturedOption-{{ option.position }}">{{ option.name }}</label>
+                <select id="FeaturedOption-{{ option.position }}" name="options[{{ option.name }}]">
+                  {% for value in option.values %}
+                    <option value="{{ value | escape }}">{{ value }}</option>
+                  {% endfor %}
+                </select>
+              {% endfor %}
+            </div>
+          {% endunless %}
+          <div class="featured-product__actions">
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">{{ section.settings.button_label }}</button>
+          </div>
+        {% endform %}
+        {% else %}
+          {% if fallback_link != blank %}
+            <a class="button" href="{{ fallback_link | escape }}">{{ section.settings.button_label }}</a>
+          {% endif %}
+        {% endif %}
+      <ul class="featured-product__highlights">
+        {% for block in section.blocks %}
+          <li>
+            <span class="highlight__title">{{ block.settings.title }}</span>
+            <span class="highlight__text">{{ block.settings.text }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+      {% elsif featured_product and featured_product.featured_image %}
+        {{ featured_product.featured_image | image_url: width: 1200 | image_tag: class: 'featured-product__image', loading: 'lazy' }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'featured-product__image' }}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Farm favorite"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Hot Pepper Spread"},
+    {"type": "richtext", "id": "text", "label": "Description", "default": "<p>Made with heirloom peppers, vinegar, and local honey for an addictive balance of sweet heat.</p>"},
+    {"type": "product", "id": "product", "label": "Product"},
+    {"type": "text", "id": "button_label", "label": "Button label", "default": "Add to cart"},
+    {"type": "url", "id": "fallback_link", "label": "Fallback link", "default": "/collections/all"},
+    {"type": "image_picker", "id": "image", "label": "Custom image"}
+  ],
+  "blocks": [
+    {
+      "type": "highlight",
+      "name": "Highlight",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Title", "default": "Pairings"},
+        {"type": "textarea", "id": "text", "label": "Text", "default": "Spread over cream cheese, glaze roasted veggies, or swirl into soups."}
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Featured product",
+      "blocks": [
+        {"type": "highlight"},
+        {"type": "highlight"}
+      ]
+    }
+  ]
+}
+{% endschema %}

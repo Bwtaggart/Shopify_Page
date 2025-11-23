@@ -1,0 +1,42 @@
+<section class="testimonials">
+  <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+  <h2>{{ section.settings.heading }}</h2>
+  <div class="testimonials__grid">
+    {% for block in section.blocks %}
+      <figure>
+        <blockquote>“{{ block.settings.quote }}”</blockquote>
+        <figcaption>— {{ block.settings.author }}</figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Spice lovers"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "What people are spreading"}
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {"type": "textarea", "id": "quote", "label": "Quote", "default": "This jar disappears in a week. It's the fastest way to upgrade grilled cheese."},
+        {"type": "text", "id": "author", "label": "Author", "default": "Maya, Spokane"}
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {"type": "quote"},
+        {"type": "quote"}
+      ]
+    }
+  ]
+}
+{% endschema %}

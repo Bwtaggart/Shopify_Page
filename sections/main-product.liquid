@@ -1,0 +1,68 @@
+<section class="product-page">
+  <div class="product-page__media">
+    {% for media in product.media %}
+      {{ media | media_tag: loading: 'lazy', image_size: '1200x' }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag }}
+    {% endfor %}
+  </div>
+  <div class="product-page__details">
+    <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h1>{{ product.title }}</h1>
+    <div class="rte">{{ product.description }}</div>
+    <p class="product-page__price">{{ product.price | money_with_currency }}</p>
+    {% form 'product', product %}
+      {% unless product.has_only_default_variant %}
+        {% for option in product.options_with_values %}
+          <label for="ProductOption-{{ option.position }}">{{ option.name }}</label>
+          <select id="ProductOption-{{ option.position }}" name="options[{{ option.name }}]">
+            {% for value in option.values %}
+              <option value="{{ value | escape }}"{% if option.selected_value == value %} selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+          </select>
+        {% endfor %}
+      {% endunless %}
+      <div class="product-page__actions">
+        <input type="number" min="1" value="1" name="quantity">
+        <button type="submit" name="add">{{ section.settings.button_label }}</button>
+      </div>
+    {% endform %}
+    <ul class="product-page__list">
+      {% for block in section.blocks %}
+        <li>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product information",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Limited batch"},
+    {"type": "text", "id": "button_label", "label": "Button", "default": "Add to cart"}
+  ],
+  "blocks": [
+    {
+      "type": "detail",
+      "name": "Detail",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Title", "default": "Ingredients"},
+        {"type": "textarea", "id": "text", "label": "Text", "default": "Taggart heirloom peppers, organic cane sugar, apple cider vinegar, sea salt."}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product information",
+      "blocks": [
+        {"type": "detail"},
+        {"type": "detail"}
+      ]
+    }
+  ]
+}
+{% endschema %}

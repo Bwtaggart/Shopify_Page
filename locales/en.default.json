@@ -1,0 +1,12 @@
+{
+  "general": {
+    "404": "Page not found",
+    "search": "Search",
+    "newsletter": "Sign up"
+  },
+  "sections": {
+    "featured_collection": {
+      "title": "Collection"
+    }
+  }
+}

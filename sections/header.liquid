@@ -1,0 +1,72 @@
+<div class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__branding">
+      {% if section.settings.logo != blank %}
+        <a href="/" class="site-header__logo">
+          <img src="{{ section.settings.logo | image_url: width: 240 }}" alt="{{ shop.name }} logo" loading="lazy">
+        </a>
+      {% else %}
+        <a href="/" class="site-header__logo-text">{{ section.settings.logo_text | escape }}</a>
+      {% endif %}
+      <p class="site-header__tagline">{{ section.settings.tagline | escape }}</p>
+    </div>
+    <nav class="site-header__nav" role="navigation">
+      <ul>
+        {% for link in linklists[section.settings.menu].links %}
+          <li>
+            <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="site-header__cta">
+      {% if section.settings.button_label != blank %}
+        <a class="button" href="{{ section.settings.button_link }}">{{ section.settings.button_label | escape }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "sticky-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo fallback text",
+      "default": "Taggart Family Farm"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Small batch spreads from The Taggart Family Farm"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Header button text",
+      "default": "Shop the Spread"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Header button link",
+      "default": "/collections/all"
+    }
+  ]
+}
+{% endschema %}

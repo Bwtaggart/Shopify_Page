@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "story": {
+      "type": "story-page",
+      "settings": {
+        "eyebrow": "Our story",
+        "heading": "Taggart Family Farm",
+        "subheading": "Service, family, and flavor - passed forward."
+      }
+    }
+  },
+  "order": [
+    "story"
+  ]
+}

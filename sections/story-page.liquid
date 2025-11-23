@@ -1,0 +1,60 @@
+<section class="story-page">
+  <div class="story-page__header">
+    {% if section.settings.eyebrow != blank %}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h1>{{ section.settings.heading }}</h1>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p class="lead">{{ section.settings.subheading }}</p>
+    {% endif %}
+  </div>
+
+  <div class="story-page__body">
+    <div class="story-page__copy rte">
+      {{ section.settings.narrative }}
+    </div>
+
+    <aside class="story-page__sidebar">
+      {% if section.settings.image != blank %}
+        <div class="story-page__image">
+          {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'story-page__image-tag', alt: section.settings.heading }}
+        </div>
+      {% endif %}
+      {% if section.settings.callout_heading != blank or section.settings.callout_text != blank %}
+        <div class="story-page__card">
+          {% if section.settings.callout_heading != blank %}
+            <h3>{{ section.settings.callout_heading }}</h3>
+          {% endif %}
+          {% if section.settings.callout_text != blank %}
+            <p>{{ section.settings.callout_text }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </aside>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story page",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Taggart Family Farm" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Service, family, and flavor - passed forward." },
+    {
+      "type": "richtext",
+      "id": "narrative",
+      "label": "Narrative",
+      "default": "<p>Bryan and Kristina Taggart are high school sweethearts from a small town in Northeast Ohio, brought together by shared values, faith and a deep love for family. After 9/11, Bryan answered the call to serve and joined the U.S. Air Force, beginning a 20-year career that took the Taggart family across the country and around the world. After two decades of dedicated service the Taggart family decided to find some roots bringing with them their core values of community, purpose and home.</p><p>Wherever they lived, Kristina, a degreed nutritionist, stayed anchored to her passion for health, wellness and nourishment. Her expertise in nutrition blended seamlessly with Bryan's love of homegrown produce and bold, vibrant flavors. Together, they built a life rooted in dedication, tradition, exploration and a drive to create something meaningful.</p><p>After Bryan's retirement, the Taggarts settled in Nokesville, Virginia, where they now raise their energetic, school-age son, Noah, and grow a wide variety of produce on their family farm.</p><p>The heart of their journey began with a beloved pepper spread, a family recipe perfected across generations and refined during their travels. It is a flavor unlike anything they have found anywhere in the world, and sharing it has become a way of honoring where they come from and what they have built.</p><p>And this is just the beginning. Kristina is now combining her nutrition background with their farm-to-table focus to create a line of delicious hidden veggie sauces and health conscious products designed to help families eat better without sacrificing taste.</p><p>Taggart Family Farm is more than a business, it is a legacy in motion, shaped by service, strengthened by family and inspired by the journey ahead.</p><p>More flavors, more wellness, and more good food are on the way!</p>"
+    },
+    { "type": "image_picker", "id": "image", "label": "Supporting image" },
+    { "type": "text", "id": "callout_heading", "label": "Callout heading", "default": "Rooted in service" },
+    { "type": "textarea", "id": "callout_text", "label": "Callout text", "default": "Bryan served 20 years in the U.S. Air Force. The same dedication fuels every batch and every relationship with the community." }
+  ],
+  "presets": [
+    { "name": "Story page" }
+  ]
+}
+{% endschema %}
