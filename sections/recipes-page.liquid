@@ -1,0 +1,124 @@
+<section class="recipes-page">
+  <div class="recipes-page__header">
+    {% if section.settings.eyebrow != blank %}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h1>{{ section.settings.heading }}</h1>
+    {% endif %}
+    {% if section.settings.intro != blank %}
+      <p class="lead">{{ section.settings.intro }}</p>
+    {% endif %}
+  </div>
+
+  <div class="recipes-page__grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'recipe' %}
+        <article class="recipes-page__card" {{ block.shopify_attributes }}>
+          <div class="recipes-page__card-header">
+            <p class="eyebrow">{{ block.settings.tagline }}</p>
+            <h3>{{ block.settings.title }}</h3>
+          </div>
+          <div class="recipes-page__card-body">
+            <div class="recipes-page__ingredients">
+              <h4>Ingredients</h4>
+              <ul>
+                {% assign ingredients = block.settings.ingredients | split: '\n' %}
+                {% for ingredient in ingredients %}
+                  {% if ingredient != '' %}
+                    <li>{{ ingredient }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="recipes-page__instructions">
+              <h4>Instructions</h4>
+              <ol>
+                {% assign steps = block.settings.instructions | split: '\n' %}
+                {% for step in steps %}
+                  {% if step != '' %}
+                    <li>{{ step }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ol>
+            </div>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if section.settings.pairings != blank %}
+    <div class="recipes-page__pairings">
+      <div class="recipes-page__pairings-card">
+        <p class="eyebrow">Pairs perfectly with</p>
+        <ul>
+          {% assign pairings = section.settings.pairings | split: '\n' %}
+          {% for pairing in pairings %}
+            {% if pairing != '' %}
+              <li>{{ pairing }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Recipes page",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Farm kitchen recipes" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Taggart Family favorites" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Discover our favorite ways to layer pepper spread into easy weeknight dinners, appetizers, and comfort foods." },
+    { "type": "textarea", "id": "pairings", "label": "Pairings", "default": "Any pizza with peppers spread on top\nEggs (any way)\nPotatoes (especially oven roasted)\nSandwich spread\nOatmeal\nTofu topping" }
+  ],
+  "blocks": [
+    {
+      "type": "recipe",
+      "name": "Recipe",
+      "settings": [
+        { "type": "text", "id": "tagline", "label": "Tagline", "default": "New" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Recipe title" },
+        { "type": "textarea", "id": "ingredients", "label": "Ingredients", "default": "" },
+        { "type": "textarea", "id": "instructions", "label": "Instructions", "default": "" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recipes page",
+      "blocks": [
+        {
+          "type": "recipe",
+          "settings": {
+            "tagline": "Hot pepper ricotta pizza",
+            "title": "Hot pepper ricotta pizza",
+            "ingredients": "Your favorite pizza dough\n1 cup full fat ricotta\n2 tablespoons olive oil (more for drizzling)\n1/2 teaspoon Italian seasoning\n2 -3 tablespoons Taggart Family pepper spread (depending on the spice level)\n2 garlic cloves\n1tsp salt\n1 cup mozzarella cheese\n1 cup parmesan cheese",
+            "instructions": "Preheat oven to 425\nFollow instructions for pizza dough - Note: precooked pizza dough should not be recooked without toppings\nIn large bowl mix ricotta cheese, olive oil, Italian seasoning, pepper spread, garlic cloves and salt.\nSpread mixture evenly over the pizza dough\nTop with mozzarella and parmesan cheese\nBake for 10 minutes - cheese should be melted and pizza crust is golden on the edges.\nFinish with a drizzle of olive oil and a sprinkle of salt."
+          }
+        },
+        {
+          "type": "recipe",
+          "settings": {
+            "tagline": "Spicy Pepper Pasta",
+            "title": "Spicy Pepper Pasta",
+            "ingredients": "1 pound pasta (any shape)\n1/2 cup extra virgin olive oil\n1 garlic bulb (6-10 cloves)\n3 tablespoons pepper spread (or more to taste)\nParmesan cheese",
+            "instructions": "Bring a medium pot of water to boil. Cook pasta according to package to al dente. Reserve 2 cups of pasta water\nIn a large pan, combine olive oil and garlic. Heat until fragrant. Add a pinch of salt.\nStir in peppers until warmed through.\nAdd 2 tablespoons of pasta water, stirring consistently until garlic/pepper sauce is incorporated.\nAdd pasta to pan with garlic/pepper mixture. Add more pasta water as needed for sauce consistency.\nPlate pasta, add parmesan cheese to taste."
+          }
+        },
+        {
+          "type": "recipe",
+          "settings": {
+            "tagline": "Easy hot pepper cream cheese appetizer",
+            "title": "Easy hot pepper cream cheese appetizer",
+            "ingredients": "1 jar of Taggart Family pepper spread\n1 8oz brick of cream cheese\nCrackers or veggies - anything to dip!",
+            "instructions": "Place brick of cream cheese on serving platter\nPepper spread goes directly over cream cheese (no mixing)\nArrange crackers, bread, veggies around pepper/cream cheese and serve!"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
