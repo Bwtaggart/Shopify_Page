@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "recipes": {
+      "type": "recipes-page",
+      "settings": {
+        "eyebrow": "Farm kitchen recipes",
+        "heading": "Taggart Family favorites",
+        "intro": "Discover our favorite ways to layer pepper spread into easy weeknight dinners, appetizers, and comfort foods.",
+        "pairings": "Any pizza with peppers spread on top\nEggs (any way)\nPotatoes (especially oven roasted)\nSandwich spread\nOatmeal\nTofu topping"
+      }
+    }
+  },
+  "order": [
+    "recipes"
+  ]
+}
