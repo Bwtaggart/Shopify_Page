@@ -1,0 +1,198 @@
+/* Smokehouse Theme — Taggart Family Farm */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+:root {
+  --sm-base: #3A1E12;
+  --sm-panel: #4A2818;
+  --sm-panel2: #572F1C;
+  --sm-rust: #7A3A1E;
+  --sm-cream: #F8EFD9;
+  --sm-cream-dim: rgba(248,239,217,0.72);
+  --sm-pepper: #B0472A;
+  --sm-pepper-deep: #8A3520;
+  --sm-pepper-glow: #C75A33;
+  --sm-ember: #C85A30;
+  --sm-gold: #D99A3C;
+  --sm-gold-light: #E7BE62;
+  --sm-gold-pale: #F2DBA4;
+  --sm-ink: #2B1A12;
+  --sm-ink-soft: #6B4A33;
+  --sm-leaf-deep: #3E4E2A;
+  --sm-line: rgba(231,190,98,0.26);
+  --sm-f-display: 'Cinzel', serif;
+  --sm-f-body: 'Source Sans 3', sans-serif;
+  --sm-f-ui: 'Outfit', sans-serif;
+  --sm-f-italic: 'Cormorant Garamond', serif;
+}
+
+/* ===== Override Savor color scheme globally ===== */
+:root,
+body,
+[class*="color-"] {
+  --color-background: #3A1E12 !important;
+  --color-background-rgb: 58 30 18 !important;
+  --color-foreground: #F8EFD9 !important;
+  --color-foreground-rgb: 248 239 217 !important;
+  --color-foreground-heading: #F8EFD9 !important;
+  --color-foreground-heading-rgb: 248 239 217 !important;
+  --color-primary: #D99A3C !important;
+  --color-primary-rgb: 217 154 60 !important;
+  --color-primary-hover: #E7BE62 !important;
+  --color-primary-hover-rgb: 231 190 98 !important;
+  --color-border: rgba(231,190,98,0.35) !important;
+  --color-border-rgb: 231 190 98 !important;
+  --color-shadow: #2B1A12 !important;
+  --color-shadow-rgb: 43 26 18 !important;
+  --color-primary-button-text: #F8EFD9 !important;
+  --color-primary-button-background: #B0472A !important;
+  --color-primary-button-border: #B0472A !important;
+  --color-primary-button-hover-text: #F8EFD9 !important;
+  --color-primary-button-hover-background: #C75A33 !important;
+  --color-primary-button-hover-border: #C75A33 !important;
+  --color-secondary-button-text: #F8EFD9 !important;
+  --color-secondary-button-background: transparent !important;
+  --color-secondary-button-border: #D99A3C !important;
+  --color-secondary-button-hover-text: #F8EFD9 !important;
+  --color-secondary-button-hover-background: rgba(217,154,60,0.15) !important;
+  --color-secondary-button-hover-border: #E7BE62 !important;
+  --color-input-background: #4A2818 !important;
+  --color-input-text: #F8EFD9 !important;
+  --color-input-text-rgb: 248 239 217 !important;
+  --color-input-border: rgba(231,190,98,0.35) !important;
+  --color-input-hover-background: #572F1C !important;
+  --color-variant-background: #4A2818 !important;
+  --color-variant-border: rgba(231,190,98,0.35) !important;
+  --color-variant-text: #F8EFD9 !important;
+  --color-variant-text-rgb: 248 239 217 !important;
+  --color-variant-hover-background: #572F1C !important;
+  --color-variant-hover-text: #F8EFD9 !important;
+  --color-variant-hover-border: #D99A3C !important;
+  --color-selected-variant-background: #572F1C !important;
+  --color-selected-variant-border: #D99A3C !important;
+  --color-selected-variant-text: #F8EFD9 !important;
+  --color-selected-variant-hover-background: #572F1C !important;
+  --color-selected-variant-hover-text: #F8EFD9 !important;
+  --color-selected-variant-hover-border: #E7BE62 !important;
+  --color-white: #F8EFD9 !important;
+  --color-white-rgb: 248 239 217 !important;
+}
+
+/* Hide default Savor header/footer ONLY on homepage (where smokehouse has its own) */
+body:has(.smokehouse-home) #header-group { display: none !important; }
+body:has(.smokehouse-home) .shopify-section-group-footer-group { display: none !important; }
+
+/* Ensure Savor header has dark bg on other pages */
+#header-group,
+header-component,
+.header-section { background: #3A1E12 !important; }
+.shopify-section-group-footer-group { background: #2C1509 !important; }
+
+/* Fix product images — portrait jar photos */
+.product-information__grid { grid-template-columns: 1fr 1fr !important; }
+.product-information__media { align-self: start !important; }
+.product-media-container,
+.product-media-container.media-fit-cover,
+.product-media {
+  aspect-ratio: auto !important;
+  max-height: 460px !important;
+  overflow: visible !important;
+}
+.product-media-container img,
+.product-media img,
+.product-media__image {
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  height: auto !important;
+  max-height: 460px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+.product__media-list,
+.product__media-wrapper,
+.product__media-item,
+.product-media-container,
+.product-media { background: #4A2818 !important; }
+
+/* Fix collection banner */
+.collection-banner__box,
+.collection-hero { background: #3A1E12 !important; }
+
+/* Fix cart backgrounds */
+.cart-items,
+.cart__footer { background: #3A1E12 !important; }
+
+/* Link color overrides */
+a:not(.sm-btn):not([class*="smokehouse"]) { color: var(--color-foreground) !important; }
+a:not(.sm-btn):not([class*="smokehouse"]):hover { opacity: 0.8; }
+
+/* Price styling */
+.price-item,
+.price { color: #F8EFD9 !important; }
+
+/* Base reset for smokehouse sections */
+.smokehouse-home * { box-sizing: border-box; margin: 0; padding: 0; }
+.smokehouse-home a { color: inherit; text-decoration: none; }
+.smokehouse-home img { display: block; max-width: 100%; }
+.smokehouse-home {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: var(--sm-f-body);
+  color: var(--sm-cream);
+  background: var(--sm-base);
+}
+
+/* Eyebrow label */
+.sm-eye {
+  font-family: var(--sm-f-ui);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--sm-gold);
+}
+
+/* Buttons */
+.sm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 30px;
+  border: 1.5px solid var(--sm-gold);
+  border-radius: 2px;
+  font-family: var(--sm-f-ui);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--sm-cream);
+  background: transparent;
+  transition: opacity 0.2s;
+}
+.sm-btn:hover { opacity: 0.85; }
+.sm-btn-primary {
+  background: var(--sm-pepper);
+  border-color: var(--sm-pepper);
+  color: var(--sm-cream);
+}
+.sm-btn-on-cream {
+  color: var(--sm-ink);
+  border-color: var(--sm-ink);
+  background: transparent;
+}
+.sm-btn-arrow { font-size: 15px; }
+
+/* Stars */
+.sm-stars { display: inline-flex; gap: 2px; }
+.sm-stars svg { display: block; }
+
+/* Responsive scaling */
+@media (max-width: 1440px) {
+  .smokehouse-home { zoom: calc(100vw / 1440); }
+}
+@media (max-width: 768px) {
+  .smokehouse-home { zoom: unset; width: 100%; }
+}

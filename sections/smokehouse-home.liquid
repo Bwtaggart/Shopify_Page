@@ -1,0 +1,400 @@
+{{ 'smokehouse.css' | asset_url | stylesheet_tag }}
+
+
+<div class="smokehouse-home">
+
+<!-- HEADER -->
+<header style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:24px 76px; border-bottom:1px solid var(--sm-line)">
+  <nav style="display:flex; gap:30px; font-family:var(--sm-f-ui); font-size:12px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase">
+    <a href="/collections/all" style="color:var(--sm-cream)">Shop</a>
+    <a href="/pages/recipes" style="color:var(--sm-cream)">Recipes</a>
+    <a href="/pages/our-story" style="color:var(--sm-cream)">Story</a>
+  </nav>
+  <a href="/" style="display:flex; align-items:center; gap:12px; justify-self:center">
+    <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/taggart-logo-hi-res.png?v=1763828798&width=88" alt="Taggart Family Farm" width="44" height="44" style="display:block; width:44px; height:44px">
+    <div style="line-height:1">
+      <div style="font-family:var(--sm-f-display); font-weight:700; font-size:21px; letter-spacing:0.06em; color:var(--sm-cream)">TAGGART</div>
+      <div style="font-family:var(--sm-f-display); font-weight:500; font-size:8px; letter-spacing:0.38em; color:var(--sm-cream-dim); margin-top:3px">FAMILY&nbsp;FARM</div>
+    </div>
+  </a>
+  <div style="display:flex; gap:22px; justify-content:flex-end; align-items:center; font-family:var(--sm-f-ui); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--sm-cream)">
+    <a href="/search" style="color:var(--sm-cream)">Search</a>
+    <a href="{{ routes.cart_url }}" style="padding:9px 18px; border-radius:2px; border:1.5px solid var(--sm-gold); color:var(--sm-gold-light); font-weight:600">Cart · {{ cart.item_count }}</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section style="padding:64px 76px 90px; position:relative; overflow:hidden">
+  <div style="position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:760px; height:760px; border-radius:50%; background:radial-gradient(circle, rgba(217,154,60,0.13), transparent 64%); pointer-events:none"></div>
+  <div style="position:relative; text-align:center; display:flex; flex-direction:column; align-items:center">
+    <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/taggart-logo-hi-res.png?v=1763828798&width=184" alt="Taggart Family Farm" width="92" height="92" style="display:block; width:92px; height:92px">
+    <div class="sm-eye" style="margin-top:22px">Nokesville, Virginia · Small batch</div>
+    <h1 style="font-family:var(--sm-f-display); font-size:80px; line-height:1.04; margin:20px 0 0; font-weight:700; letter-spacing:0.01em">
+      HOT PEPPER<br><span style="color:var(--sm-gold-light)">SPREAD</span>
+    </h1>
+    <p style="font-size:21px; line-height:1.55; color:var(--sm-cream-dim); max-width:540px; margin-top:24px">
+      A sweet heat made from sun-ripened peppers, local honey, and just enough smoke — cooked in small batches and hand-filled on the family farm.
+    </p>
+    <div style="display:flex; gap:14px; margin-top:34px; align-items:center">
+      <a href="/products/pepper-spread-hot" class="sm-btn sm-btn-primary"><span>Shop the Spread · $15</span><span class="sm-btn-arrow">→</span></a>
+      <a href="/pages/our-story" class="sm-btn"><span>Our Story</span><span class="sm-btn-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Jar + stat band -->
+  <div style="margin-top:70px; position:relative; border:1px solid var(--sm-line); border-radius:8px; padding:0 56px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; min-height:360px; background:var(--sm-base)">
+    <div style="display:grid; gap:36px">
+      <div style="text-align:right">
+        <div class="sm-eye" style="font-size:10px">Heat</div>
+        <div style="font-family:var(--sm-f-display); font-size:26px; color:var(--sm-cream); margin-top:8px">Hot · 8 of 10</div>
+      </div>
+      <div style="text-align:right">
+        <div class="sm-eye" style="font-size:10px">Net weight</div>
+        <div style="font-family:var(--sm-f-display); font-size:26px; color:var(--sm-cream); margin-top:8px">16 oz · 454 g</div>
+      </div>
+    </div>
+    <div style="position:relative; transform:translateY(-30px); padding:0 40px">
+      <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/pepper_jar_500px.png?v=1766894002&width=400"
+           alt="Hot Pepper Spread 16 oz jar"
+           width="300" height="456"
+           style="display:block; filter:drop-shadow(0 12px 24px rgba(0,0,0,0.4))">
+    </div>
+    <div style="display:grid; gap:36px">
+      <div>
+        <div class="sm-eye" style="font-size:10px">Ingredients</div>
+        <div style="font-family:var(--sm-f-display); font-size:26px; color:var(--sm-cream); margin-top:8px">Six · nothing else</div>
+      </div>
+      <div>
+        <div class="sm-eye" style="font-size:10px">Reviews</div>
+        <div style="font-family:var(--sm-f-display); font-size:26px; color:var(--sm-cream); margin-top:8px">5.0 ★ · five-star</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<section style="background:var(--sm-panel); padding:18px 76px; border-top:1px solid var(--sm-line); border-bottom:1px solid var(--sm-line)">
+  <div style="display:flex; justify-content:space-between; font-family:var(--sm-f-ui); font-size:12px; letter-spacing:0.2em; text-transform:uppercase">
+    <span style="color:var(--sm-gold-light)">Cooked in small batches</span>
+    <span style="color:var(--sm-cream-dim)">· No gums or fillers</span>
+    <span style="color:var(--sm-cream-dim)">· Veteran-owned</span>
+    <span style="color:var(--sm-cream-dim)">· Ships next day</span>
+  </div>
+</section>
+
+<!-- PROMISE — INGREDIENTS -->
+<section style="padding:110px 76px">
+  <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:80px">
+    <div>
+      <div class="sm-eye">The promise</div>
+      <h2 style="font-family:var(--sm-f-display); font-size:52px; line-height:1.06; margin:20px 0 0; font-weight:700">
+        Six things.<br>Nothing <span style="color:var(--sm-ember)">else.</span>
+      </h2>
+      <p style="font-size:19px; line-height:1.6; color:var(--sm-cream-dim); margin-top:24px; max-width:380px">
+        No gums, no corn syrup, no natural-flavor footnote — just a short list cooked the slow way.
+      </p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--sm-line); border:1px solid var(--sm-line)">
+      <div style="padding:26px; background:var(--sm-base)">
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:2px; color:var(--sm-gold)">01</div>
+        <div style="font-family:var(--sm-f-display); font-size:21px; margin-top:10px; color:var(--sm-cream)">Bell peppers</div>
+        <div style="font-size:14px; margin-top:6px; color:var(--sm-cream-dim)">Field-grown, VA</div>
+      </div>
+      <div style="padding:26px; background:var(--sm-base)">
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:2px; color:var(--sm-gold)">02</div>
+        <div style="font-family:var(--sm-f-display); font-size:21px; margin-top:10px; color:var(--sm-cream)">Hot peppers</div>
+        <div style="font-size:14px; margin-top:6px; color:var(--sm-cream-dim)">Heirloom, spicy</div>
+      </div>
+      <div style="padding:26px; background:var(--sm-base)">
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:2px; color:var(--sm-gold)">03</div>
+        <div style="font-family:var(--sm-f-display); font-size:21px; margin-top:10px; color:var(--sm-cream)">Local honey</div>
+        <div style="font-size:14px; margin-top:6px; color:var(--sm-cream-dim)">Wildflower, raw</div>
+      </div>
+      <div style="padding:26px; background:var(--sm-base)">
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:2px; color:var(--sm-gold)">04</div>
+        <div style="font-family:var(--sm-f-display); font-size:21px; margin-top:10px; color:var(--sm-cream)">Apple vinegar</div>
+        <div style="font-size:14px; margin-top:6px; color:var(--sm-cream-dim)">Aged in barrel</div>
+      </div>
+      <div style="padding:26px; background:var(--sm-base)">
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:2px; color:var(--sm-gold)">05</div>
+        <div style="font-family:var(--sm-f-display); font-size:21px; margin-top:10px; color:var(--sm-cream)">Roasted garlic</div>
+        <div style="font-size:14px; margin-top:6px; color:var(--sm-cream-dim)">Soft-neck, peeled</div>
+      </div>
+      <div style="padding:26px; background:var(--sm-base)">
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:2px; color:var(--sm-gold)">06</div>
+        <div style="font-family:var(--sm-f-display); font-size:21px; margin-top:10px; color:var(--sm-cream)">Sea salt</div>
+        <div style="font-size:14px; margin-top:6px; color:var(--sm-cream-dim)">Atlantic flake</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCT — cream panel -->
+<section style="padding:0 76px 110px">
+  <div style="background:var(--sm-cream); color:var(--sm-ink); border-radius:10px; padding:56px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center">
+    <div style="position:relative; display:flex; justify-content:center; align-items:center; min-height:500px; background:radial-gradient(circle, rgba(217,154,60,0.13), var(--sm-cream) 70%); border-radius:8px">
+      <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/pepper_jar_500px.png?v=1766894002&width=440"
+           alt="Hot Pepper Spread 16 oz jar"
+           width="330" height="502"
+           style="display:block; filter:drop-shadow(0 14px 28px rgba(0,0,0,0.35))">
+      <div style="position:absolute; top:8px; left:8px; padding:8px 16px; background:var(--sm-pepper); color:var(--sm-cream); border-radius:2px; font-family:var(--sm-f-ui); font-size:11px; letter-spacing:1.4px; font-weight:600; text-transform:uppercase">New size · 16 oz</div>
+    </div>
+    <div>
+      <div class="sm-eye" style="color:var(--sm-pepper)">The flagship jar</div>
+      <h2 style="font-family:var(--sm-f-display); font-size:40px; line-height:1.1; margin:14px 0; font-weight:700; color:var(--sm-ink)">Hot Pepper Spread · 16 oz</h2>
+      <p style="font-size:18px; line-height:1.6; color:#6B4A33; max-width:460px">
+        Our hottest batch yet, now in a bigger 16 oz jar. Heirloom peppers, vinegar, and local honey for an addictive balance of sweet heat — great on eggs, pizza, cheese boards, anything.
+      </p>
+
+      <!-- SKU selector -->
+      <div style="margin-top:22px; display:grid; gap:10px">
+        <a href="/products/pepper-spread-hot" style="display:flex; align-items:center; gap:16px; padding:15px 18px; border-radius:6px; background:#fff; border:1.5px solid var(--sm-pepper); text-decoration:none">
+          <div style="width:18px; height:18px; border-radius:50%; flex-shrink:0; border:2px solid var(--sm-pepper); display:flex; align-items:center; justify-content:center">
+            <div style="width:9px; height:9px; border-radius:50%; background:var(--sm-pepper)"></div>
+          </div>
+          <div style="flex:1">
+            <div style="font-family:var(--sm-f-display); font-size:19px; font-weight:700; color:var(--sm-ink)">16 oz · Hot</div>
+            <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:0.4px; color:var(--sm-pepper); text-transform:uppercase; margin-top:3px">New size · 52 in this batch</div>
+          </div>
+          <div style="font-family:var(--sm-f-display); font-size:22px; font-weight:700; color:var(--sm-ink)">$15</div>
+        </a>
+        <a href="/products/pepper-spread-mild" style="display:flex; align-items:center; gap:16px; padding:15px 18px; border-radius:6px; background:transparent; border:1.5px solid rgba(43,26,18,0.16); text-decoration:none">
+          <div style="width:18px; height:18px; border-radius:50%; flex-shrink:0; border:2px solid rgba(43,26,18,0.3); display:flex; align-items:center; justify-content:center"></div>
+          <div style="flex:1">
+            <div style="font-family:var(--sm-f-display); font-size:19px; font-weight:700; color:var(--sm-ink)">8 oz · Mild</div>
+            <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:0.4px; color:#9A7A5E; text-transform:uppercase; margin-top:3px">Final batch · while supplies last</div>
+          </div>
+          <div style="font-family:var(--sm-f-display); font-size:22px; font-weight:700; color:var(--sm-ink)">$8</div>
+        </a>
+      </div>
+
+      <!-- stock bar -->
+      <div style="margin-top:18px">
+        <div style="display:flex; justify-content:space-between; font-family:var(--sm-f-ui); font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#9A7A5E; margin-bottom:6px">
+          <span>Batch 028 · Hot 16 oz</span><span style="color:var(--sm-pepper)">52 jars left</span>
+        </div>
+        <div style="height:6px; border-radius:3px; background:rgba(43,26,18,0.12); overflow:hidden">
+          <div style="width:52%; height:100%; background:var(--sm-pepper)"></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="display:flex; gap:12px; margin-top:24px">
+        <form method="post" action="/cart/add" style="flex:1; display:flex">
+          <input type="hidden" name="id" value="47581256843519">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="sm-btn sm-btn-primary" style="flex:1; justify-content:center; padding:18px; font-size:12px"><span>Add to Cart · $15</span><span class="sm-btn-arrow">→</span></button>
+        </form>
+        <a href="/products/pepper-spread-hot" class="sm-btn sm-btn-on-cream" style="padding:18px 22px"><span>View Details</span><span class="sm-btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY — split -->
+<section style="padding:0">
+  <div style="display:grid; grid-template-columns:1fr 1fr">
+    <div style="height:600px; position:relative; overflow:hidden">
+      <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/collage_pics.png?v=1763949405&width=720"
+           alt="The Taggart Family"
+           style="width:100%; height:100%; object-fit:cover">
+      <div style="position:absolute; bottom:14px; left:16px; font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.62); font-family:var(--sm-f-ui); text-transform:uppercase">The Taggarts · Nokesville VA</div>
+    </div>
+    <div style="background:var(--sm-panel); padding:90px 76px; display:flex; flex-direction:column; justify-content:center">
+      <div class="sm-eye">Our story</div>
+      <h2 style="font-family:var(--sm-f-display); font-size:46px; line-height:1.1; margin:18px 0 20px; font-weight:700">
+        The recipe is just<br>where it <span style="color:var(--sm-gold-light)">starts.</span>
+      </h2>
+      <p style="font-size:19px; line-height:1.6; color:var(--sm-cream-dim); max-width:460px">
+        Bryan served 20 years in the U.S. Air Force; Kristina is a nutritionist. They settled in Nokesville with their son Noah to grow produce and bottle the pepper spread passed down in Bryan's family.
+      </p>
+      <div style="margin-top:30px">
+        <a href="/pages/our-story" class="sm-btn"><span>Read Our Story</span><span class="sm-btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECIPES -->
+<section style="padding:110px 76px">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px">
+    <div>
+      <div class="sm-eye">From the kitchen</div>
+      <h2 style="font-family:var(--sm-f-display); font-size:46px; line-height:1.06; margin:18px 0 0; font-weight:700">Three ways to start</h2>
+    </div>
+    <a href="/pages/recipes" class="sm-btn"><span>All Recipes</span><span class="sm-btn-arrow">→</span></a>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px">
+    <a href="/pages/recipes" style="text-decoration:none; color:inherit">
+    <article style="background:var(--sm-panel); border-radius:8px; overflow:hidden; border:1px solid var(--sm-line)">
+      <div style="height:230px; position:relative; overflow:hidden">
+        <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/Pizza.png?v=1763949447&width=500"
+             alt="Hot pepper ricotta pizza"
+             style="width:100%; height:100%; object-fit:cover">
+      </div>
+      <div style="padding:24px">
+        <div class="sm-eye" style="font-size:10px">Pizza night</div>
+        <h3 style="font-family:var(--sm-f-display); font-size:23px; line-height:1.16; margin:12px 0; font-weight:700; color:var(--sm-cream)">Hot pepper ricotta pizza</h3>
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:1.4px; color:var(--sm-cream-dim); text-transform:uppercase">25 min · easy</div>
+      </div>
+    </article>
+    </a>
+    <a href="/pages/recipes" style="text-decoration:none; color:inherit">
+    <article style="background:var(--sm-panel); border-radius:8px; overflow:hidden; border:1px solid var(--sm-line)">
+      <div style="height:230px; position:relative; overflow:hidden; background:radial-gradient(ellipse at 32% 22%, #f4dca8 0%, #caa05c 32%, #9a6634 64%, #5a3a1c 100%)">
+        <div style="position:absolute; inset:0; background:repeating-linear-gradient(48deg, rgba(0,0,0,0.04) 0 2px, transparent 2px 6px), radial-gradient(ellipse at 72% 82%, rgba(0,0,0,0.35), transparent 62%); mix-blend-mode:multiply"></div>
+      </div>
+      <div style="padding:24px">
+        <div class="sm-eye" style="font-size:10px">Weeknight</div>
+        <h3 style="font-family:var(--sm-f-display); font-size:23px; line-height:1.16; margin:12px 0; font-weight:700; color:var(--sm-cream)">Spicy pepper pasta</h3>
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:1.4px; color:var(--sm-cream-dim); text-transform:uppercase">20 min · easy</div>
+      </div>
+    </article>
+    </a>
+    <a href="/pages/recipes" style="text-decoration:none; color:inherit">
+    <article style="background:var(--sm-panel); border-radius:8px; overflow:hidden; border:1px solid var(--sm-line)">
+      <div style="height:230px; position:relative; overflow:hidden; background:radial-gradient(ellipse at 32% 22%, #f8e6bc 0%, #e0b878 32%, #b07c40 64%, #6a4824 100%)">
+        <div style="position:absolute; inset:0; background:repeating-linear-gradient(48deg, rgba(0,0,0,0.04) 0 2px, transparent 2px 6px), radial-gradient(ellipse at 72% 82%, rgba(0,0,0,0.35), transparent 62%); mix-blend-mode:multiply"></div>
+      </div>
+      <div style="padding:24px">
+        <div class="sm-eye" style="font-size:10px">5-minute app</div>
+        <h3 style="font-family:var(--sm-f-display); font-size:23px; line-height:1.16; margin:12px 0; font-weight:700; color:var(--sm-cream)">Pepper &amp; cream cheese</h3>
+        <div style="font-family:var(--sm-f-ui); font-size:11px; letter-spacing:1.4px; color:var(--sm-cream-dim); text-transform:uppercase">5 min · easy</div>
+      </div>
+    </article>
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding:0 76px 110px">
+  <div style="text-align:center; margin-bottom:52px">
+    <div class="sm-eye">From the spoon</div>
+    <h2 style="font-family:var(--sm-f-display); font-size:44px; margin:18px 0 0; font-weight:700">What people are spreading</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px">
+    <figure style="margin:0; padding:34px; background:var(--sm-panel); border-radius:8px; border:1px solid var(--sm-line)">
+      <span class="sm-stars">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+      </span>
+      <blockquote style="margin:16px 0 20px; font-family:var(--sm-f-body); font-size:20px; line-height:1.5; color:var(--sm-cream); font-style:italic">"As always!! Amaze-balls. Yummy on just about everything!"</blockquote>
+      <figcaption style="border-top:1px solid var(--sm-line); padding-top:16px; font-size:15px; color:var(--sm-cream-dim)">
+        <strong style="font-family:var(--sm-f-display); font-weight:700; color:var(--sm-cream)">Kellie M.</strong> · Verified Buyer
+      </figcaption>
+    </figure>
+    <figure style="margin:0; padding:34px; background:var(--sm-panel); border-radius:8px; border:1px solid var(--sm-line)">
+      <span class="sm-stars">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+      </span>
+      <blockquote style="margin:16px 0 20px; font-family:var(--sm-f-body); font-size:20px; line-height:1.5; color:var(--sm-cream); font-style:italic">"The depth of flavor brings a gentle heat that is perfect on eggs, sandwiches, seafood, chicken, or probably anything!"</blockquote>
+      <figcaption style="border-top:1px solid var(--sm-line); padding-top:16px; font-size:15px; color:var(--sm-cream-dim)">
+        <strong style="font-family:var(--sm-f-display); font-weight:700; color:var(--sm-cream)">Verified Buyer</strong>
+      </figcaption>
+    </figure>
+    <figure style="margin:0; padding:34px; background:var(--sm-panel); border-radius:8px; border:1px solid var(--sm-line)">
+      <span class="sm-stars">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D99A3C" stroke="#D99A3C" stroke-width="1.5"><path d="M 10 2 L 12.5 7.5 L 18 8.2 L 14 12 L 15 18 L 10 15 L 5 18 L 6 12 L 2 8.2 L 7.5 7.5 Z"/></svg>
+      </span>
+      <blockquote style="margin:16px 0 20px; font-family:var(--sm-f-body); font-size:20px; line-height:1.5; color:var(--sm-cream); font-style:italic">"I sent a bottle to family, they shared it with friends and they all loved the flavor! Everyone that tried it wants the website to buy some more!"</blockquote>
+      <figcaption style="border-top:1px solid var(--sm-line); padding-top:16px; font-size:15px; color:var(--sm-cream-dim)">
+        <strong style="font-family:var(--sm-f-display); font-weight:700; color:var(--sm-cream)">Ashley S.</strong> · Verified Buyer
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- WHOLESALE CTA -->
+<section style="padding:0 76px 110px">
+  <div style="background:linear-gradient(120deg, var(--sm-pepper), var(--sm-rust)); border-radius:10px; padding:64px; display:grid; grid-template-columns:1.2fr 1fr; gap:56px; align-items:center; position:relative; overflow:hidden; border:1px solid var(--sm-line)">
+    <div style="position:absolute; right:-80px; top:-80px; width:320px; height:320px; border-radius:50%; background:rgba(231,190,98,0.16)"></div>
+    <div style="position:relative">
+      <div class="sm-eye" style="color:var(--sm-gold-light)">Wholesale &amp; gifting</div>
+      <h2 style="font-family:var(--sm-f-display); font-size:46px; line-height:1.08; margin:16px 0 18px; font-weight:700; color:var(--sm-cream)">Need a lot of jars?</h2>
+      <p style="font-size:19px; line-height:1.55; color:rgba(248,239,217,0.92); max-width:420px">Wedding favors, corporate gifts, store shelves — we pack pallets the same way we pack jars: by hand.</p>
+    </div>
+    <div style="position:relative; background:var(--sm-cream); border-radius:8px; padding:32px; color:var(--sm-ink)">
+      <form action="/pages/contact" method="get">
+        <div style="margin-bottom:16px">
+          <div style="font-family:var(--sm-f-ui); font-size:10px; letter-spacing:2px; color:var(--sm-pepper); font-weight:600; text-transform:uppercase">Name</div>
+          <input type="text" placeholder="Your name" style="width:100%; font-size:16px; color:#6B4A33; padding:10px 0; border:none; border-bottom:1px solid rgba(43,26,18,0.16); background:transparent; outline:none; font-family:var(--sm-f-body)">
+        </div>
+        <div style="margin-bottom:16px">
+          <div style="font-family:var(--sm-f-ui); font-size:10px; letter-spacing:2px; color:var(--sm-pepper); font-weight:600; text-transform:uppercase">Email</div>
+          <input type="email" placeholder="you@email.com" style="width:100%; font-size:16px; color:#6B4A33; padding:10px 0; border:none; border-bottom:1px solid rgba(43,26,18,0.16); background:transparent; outline:none; font-family:var(--sm-f-body)">
+        </div>
+        <div style="margin-bottom:16px">
+          <div style="font-family:var(--sm-f-ui); font-size:10px; letter-spacing:2px; color:var(--sm-pepper); font-weight:600; text-transform:uppercase">Inquiry</div>
+          <input type="text" placeholder="Wholesale · 144 jars" style="width:100%; font-size:16px; color:#6B4A33; padding:10px 0; border:none; border-bottom:1px solid rgba(43,26,18,0.16); background:transparent; outline:none; font-family:var(--sm-f-body)">
+        </div>
+        <button type="submit" class="sm-btn sm-btn-primary" style="width:100%; justify-content:center; margin-top:8px"><span>Send Inquiry</span><span class="sm-btn-arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#2C1509; color:var(--sm-cream); padding:76px 76px 40px; font-family:var(--sm-f-body); border-top:1px solid var(--sm-line)">
+  <div style="display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:48px; padding-bottom:44px; border-bottom:1px solid var(--sm-line)">
+    <div>
+      <div style="display:flex; align-items:center; gap:12px">
+        <img src="https://cdn.shopify.com/s/files/1/0787/2010/6751/files/taggart-logo-hi-res.png?v=1763828798&width=100" alt="Taggart Family Farm" width="50" height="50" style="display:block; width:50px; height:50px">
+        <div style="font-family:var(--sm-f-display); font-weight:700; font-size:22px; letter-spacing:0.06em">TAGGART</div>
+      </div>
+      <p style="margin-top:18px; font-size:16px; line-height:1.6; color:var(--sm-cream-dim); max-width:320px">A small family farm in Nokesville, Virginia, cooking the pepper spread Bryan's family has made for generations.</p>
+    </div>
+    <div>
+      <div class="sm-eye" style="font-size:11px">Shop</div>
+      <ul style="list-style:none; margin:18px 0 0; display:grid; gap:11px; font-size:16px; color:var(--sm-cream-dim)">
+        <li><a href="/products/pepper-spread-hot" style="color:var(--sm-cream-dim)">Hot Pepper Spread (16 oz)</a></li>
+        <li><a href="/products/pepper-spread-mild" style="color:var(--sm-cream-dim)">Mild Spread (8 oz)</a></li>
+        <li><a href="/collections/all" style="color:var(--sm-cream-dim)">All Products</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="sm-eye" style="font-size:11px">Kitchen</div>
+      <ul style="list-style:none; margin:18px 0 0; display:grid; gap:11px; font-size:16px; color:var(--sm-cream-dim)">
+        <li><a href="/pages/recipes" style="color:var(--sm-cream-dim)">All Recipes</a></li>
+        <li><a href="/pages/recipes" style="color:var(--sm-cream-dim)">Pizza Night</a></li>
+        <li><a href="/pages/recipes" style="color:var(--sm-cream-dim)">Quick Apps</a></li>
+        <li><a href="/pages/recipes" style="color:var(--sm-cream-dim)">Pairings</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="sm-eye" style="font-size:11px">The newsletter</div>
+      <p style="margin-top:14px; font-size:15px; line-height:1.55; color:var(--sm-cream-dim)">Recipes, farm notes, and first crack at new flavors.</p>
+      {%- form 'customer', id: 'smokehouse-newsletter' -%}
+        <div style="display:flex; margin-top:16px; border:1px solid var(--sm-gold); border-radius:2px; overflow:hidden">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="you@email.com" required style="flex:1; padding:11px 16px; font-size:15px; color:var(--sm-cream-dim); background:transparent; border:none; outline:none; font-family:var(--sm-f-body)">
+          <button type="submit" style="padding:11px 20px; background:var(--sm-gold); color:var(--sm-ink); font-family:var(--sm-f-ui); font-weight:700; font-size:11px; letter-spacing:1.4px; text-transform:uppercase; cursor:pointer; border:none">Join</button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+  <div style="display:flex; justify-content:space-between; padding-top:26px; font-family:var(--sm-f-ui); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--sm-cream-dim)">
+    <span>&copy; {{ 'now' | date: '%Y' }} Taggart Family Farm</span>
+    <span style="display:flex; gap:22px"><a href="https://www.instagram.com/taggartfamilyfarm" target="_blank" rel="noopener" style="color:var(--sm-cream-dim)">Instagram</a><a href="https://www.facebook.com/taggartfamilyfarm" target="_blank" rel="noopener" style="color:var(--sm-cream-dim)">Facebook</a></span>
+  </div>
+</footer>
+
+</div>
+
+{% schema %}
+{
+  "name": "Smokehouse Home",
+  "tag": "section",
+  "class": "smokehouse-section"
+}
+{% endschema %}
